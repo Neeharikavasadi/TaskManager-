@@ -264,4 +264,8 @@ Interested in **Full Stack Development, UI/UX, and AI Projects**
 
 ## ⭐ If you like this project
 
+<<<<<<< HEAD
 If you found this project useful or interesting, consider giving it a ⭐ on GitHub!
+=======
+If you found this project useful or interesting, consider giving it a ⭐ on GitHub!
+>>>>>>> 9c914bd54b8aa4b5b52f7be486c20f4b9e7e6b09
