@@ -13,12 +13,12 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/tasks');
+      const response = await axios.get('http://localhost:8081/tasks');
       console.log('Tasks fetched:', response.data);
       setTasks(response.data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
-      alert('Cannot fetch tasks. Is the backend running on port 8080?');
+      alert('Cannot fetch tasks. Is the backend running on port 8081?');
     }
   };
 
@@ -33,10 +33,10 @@ function App() {
     
     try {
       if (editingId) {
-        await axios.put(`http://localhost:8080/tasks/${editingId}`, form);
+        await axios.put(`http://localhost:8081/tasks/${editingId}`, form);
         setEditingId(null);
       } else {
-        await axios.post('http://localhost:8080/tasks', form);
+        await axios.post('http://localhost:8081/tasks', form);
       }
       setForm({ title: '', description: '', dueDate: '', status: 'Pending' });
       fetchTasks();
@@ -54,7 +54,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/tasks/${id}`);
+      await axios.delete(`http://localhost:8081/tasks/${id}`);
       fetchTasks();
     } catch (error) {
       console.error('Error deleting task:', error);
@@ -64,7 +64,7 @@ function App() {
   const handleStatusChange = async (id, status) => {
     try {
       const task = tasks.find(t => t.id === id);
-      await axios.put(`http://localhost:8080/tasks/${id}`, { ...task, status });
+      await axios.put(`http://localhost:8081/tasks/${id}`, { ...task, status });
       fetchTasks();
     } catch (error) {
       console.error('Error updating status:', error);
